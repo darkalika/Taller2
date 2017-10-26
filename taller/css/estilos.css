@@ -1,0 +1,16 @@
+.menu > li.activo > a {
+	color: red;
+}
+body{
+background-image: url(../img/fondo.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+
+}
+#cont{
+	margin-top: 200px;
+	width: 200px;
+	height: 200px;
+/*	border: 1px red solid;*/
+}
