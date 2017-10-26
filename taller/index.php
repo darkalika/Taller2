@@ -12,8 +12,12 @@ include_once('utilidades/sesion.php');
 <html>
 <head>
 	<title>Servicios Integrales en Informatica</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<meta name="viewport" content="width=divice-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<div class="container" id="fondo">
@@ -55,18 +59,16 @@ include_once('utilidades/sesion.php');
 			</div>
 			<div class="col-md-5">
 				<br><br><br><br><br><br><br>
-				<img src="img/serviciosintegrales2.png">
+				<img src="img/serviciosintegrales2.png" style="width:100%">
+				
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, alias officiis libero dolorem quas nesciunt aliquid provident earum ipsum sit, dignissimos officia perferendis recusandae, ullam deleniti nobis quidem vero ratione!</p>
 			</div>
 			<div class="col-md-5">
 				<br><br><br><br><br><br><br><br><br>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas iusto recusandae doloribus cupiditate! Cumque nam a deleniti temporibus adipisci vitae aut, natus eaque, ut eos sunt sequi, labore dolorem. Consequatur.</p>
-				<img src="img/promociones.jpg">
+				<img src="img/promociones.jpg" style="width:100%">	
 			</div>
 		</div>
 	</div>
-
-
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
