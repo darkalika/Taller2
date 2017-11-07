@@ -606,7 +606,7 @@ public function editarProveedor($proveedor){
 	public function consultarVentas(){
 		global $BD;
 
-		$sql = "SELECT V.id, V.fecha,C.nombre, T.usuario, V.cancelado
+		$sql = "SELECT V.id, V.fecha,C.nombre AS nombreCliente, T.nombre AS nombreTrabajador, V.cancelado
 				 FROM ventas V, cliente C, trabajador T
 				 WHERE V.cliente_id = C.id AND V.trabajador_id = T.id";
 
@@ -616,7 +616,7 @@ public function editarProveedor($proveedor){
 
 		while($fila = $result->fetch_assoc()) {
 			$venta = new Venta($fila['id'], 
-				$fila['fecha'], $fila['nombre'], $fila['usuario'], 
+				$fila['fecha'], $fila['nombreCliente'], $fila['nombreTrabajador'], 
 				$fila['cancelado']);
 
 			$ventas[] = $venta;

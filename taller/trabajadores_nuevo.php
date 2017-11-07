@@ -53,6 +53,7 @@ if (!$_usuario || !$_usuario->admin) { echo "No tienes permisos para realizar es
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'utilitys.php'; ?>
 	<title>Registrar trabajador nuevo</title>
 	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
 </head>
