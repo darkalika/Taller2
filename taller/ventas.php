@@ -10,44 +10,36 @@ $ventas = $_usuario->consultarVentas();
 <html>
 <head>
 	<title>Ventas</title>
-	<!-- <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css"> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>Usuarios</h1>
+	<?php include 'nav.php'; ?>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+				<?php if ($_usuario) { ?>
 				<h2><?php echo $_usuario->nombre; ?></h2>	
-			</div>
-		</div>
-		<?php if (isset($_SESSION['exito_mensaje'])) { ?>
-			<div class="alert alert-success" role="alert"> 
-				<?php echo $_SESSION['exito_mensaje']; ?>
-				<?php unset($_SESSION['exito_mensaje']); ?>
-			</div>
-		<?php } ?>
-		<?php if (isset($_SESSION['error_mensaje'])) { ?>
-			<div class="alert alert-success" role="alert"> 
-				<?php echo $_SESSION['error_mensaje']; ?>
-				<?php unset($_SESSION['error_mensaje']); ?>
-			</div>
-		<?php } ?>
-		<div class="row">
-			<!-- MENU NAV -->
-			<?php include 'nav.php'; ?>
-			<div class="col-md-9">
-				<div class="row">
-					<div class="col-md-8">
-						<h2>Ventas</h2>
-					</div>
-					<div class="col-md-4 text-right">
-						<a href="ventas_nuevo.php" class="btn btn-success btn-xs">Agregar Venta</a>
-					</div>
+				<?php } ?>
+				<?php if (isset($_SESSION['exito_mensaje'])) { ?>
+				<div class="alert alert-success" role="alert"> 
+					<?php echo $_SESSION['exito_mensaje']; ?>
+					<?php unset($_SESSION['exito_mensaje']); ?>
 				</div>
+				<?php } ?>
+				<?php if (isset($_SESSION['error_mensaje'])) { ?>
+				<div class="alert alert-danger" role="alert"> 
+					<?php echo $_SESSION['error_mensaje']; ?>
+					<?php unset($_SESSION['error_mensaje']); ?>
+				</div>
+				<?php } ?>
+				<p><a href="ventas_nuevo.php" class="btn btn-success btn-xs">Ventas Nuevo</a></p>
+				<p><a href="#">Link</a></p>
+			</div>
+			<div class="col-sm-8 text-left"> 
+				<h2>Ventas</h2>
 				<input class="form-control" id="myInput" type="text" placeholder="Search..">
+  				<br>
+				<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
@@ -80,12 +72,19 @@ $ventas = $_usuario->consultarVentas();
 						<?php } ?>
 					</tbody>
 				</table>
+				</div>
+			</div>
+			<div class="col-sm-2 sidenav">
+				<div class="well">
+					<img src="img/serviciosintegrales2.png" style="width:100%">
+				</div>
+				<div class="well">
+					<img src="img/promociones.jpg" style="width:100%">
+				</div>
 			</div>
 		</div>
 	</div>
-
-
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
+	<?php include 'footer.php'; ?>
 	<script>
 		$(document).ready(function(){
   		$("#myInput").on("keyup", function() {
