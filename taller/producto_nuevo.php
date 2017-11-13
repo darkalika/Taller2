@@ -49,7 +49,7 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 <html>
 <head>
 	<title>Registrar cliente nuevo</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">
@@ -76,8 +76,5 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 					</div>
 				</div>
 	</div>
-
-
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

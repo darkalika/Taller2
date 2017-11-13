@@ -40,7 +40,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasena']) && isset($_POST['tip
 <html>
 <head>
 	<title>Ingenieria de Software</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">

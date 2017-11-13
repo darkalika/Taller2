@@ -61,7 +61,7 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 <html>
 <head>
 	<title>Editar cliente </title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">
@@ -72,24 +72,20 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 			</div>
 		</div>
 		<div class="row">
-					<div class="col-md-12">
-						<?php if ($error) { ?>
-							<div class="alert alert-danger" role="alert"><?= $error_mensaje; ?></div>
-						<?php } ?>
-						<form method="POST" action="">
-							<div class="form-group <?php if ($error) echo 'has-error' ?>">
-						    	<label for="contraseña">Nombre:</label>
-						    	<input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $almacen->nombre; ?>">
-						  	</div>
-						  	
-						  	
-						  	<button type="submit" class="btn btn-success">Guardar</button>
-						</form>
-					</div>
+			<div class="col-md-12">
+				<?php if ($error) { ?>
+				<div class="alert alert-danger" role="alert"><?= $error_mensaje; ?>
 				</div>
+				<?php } ?>
+				<form method="POST" action="">
+					<div class="form-group <?php if ($error) echo 'has-error' ?>">
+						<label for="contraseña">Nombre:</label>
+						<input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $almacen->nombre; ?>">
+					</div>
+					<button type="submit" class="btn btn-success">Guardar</button>
+				</form>
+			</div>
+		</div>
 	</div>
-
-
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

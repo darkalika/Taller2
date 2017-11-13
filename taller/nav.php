@@ -25,7 +25,7 @@
 			<?php } ?>
 	        	<li><a href="clientes.php">Clientes</a></li>
 	        	<li><a href="proveedores.php">Proveedores</a></li>
-	        	<li><a href="Almacen.php">Almacen</a></li>
+	        	<li><a href="almacen.php">Almacen</a></li>
 	        	<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Compras</a>
 						<ul class="dropdown-menu">

@@ -81,14 +81,14 @@ if (!$_usuario || !$_usuario->trabajador)
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registrar compra nueva</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<title>Registrar Venta nueva</title>
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Compras</h1>
+				<h1>Ventas</h1>
 				<h2><?php echo $_usuario->nombre; ?></h2>	
 			</div>
 		</div>
@@ -119,23 +119,12 @@ if (!$_usuario || !$_usuario->trabajador)
 
 				  	<div id="productos-formulario">
 					  
-				  	</div>
-
-				  	
-
-
-
-				  	
-				  	
+				  	</div>				  	
 				  	<button type="submit" class="btn btn-success">Guardar</button>
 				</form>
 			</div>
 		</div>
 	</div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
-
 	<script type="text/javascript">
 			$( document ).ready(function() {
 				var count = 0;

@@ -55,7 +55,7 @@ if (!$_usuario || !$_usuario->admin) { echo "No tienes permisos para realizar es
 <head>
 	<?php include 'utilitys.php'; ?>
 	<title>Registrar trabajador nuevo</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">
@@ -105,8 +105,5 @@ if (!$_usuario || !$_usuario->admin) { echo "No tienes permisos para realizar es
 					</div>
 				</div>
 	</div>
-
-
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

@@ -62,7 +62,7 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 <html>
 <head>
 	<title>Editar cliente </title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">

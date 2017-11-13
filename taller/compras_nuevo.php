@@ -6,8 +6,10 @@ include_once('utilidades/sesion.php');
 include_once('clases/Compra.php');
 include_once('clases/CompraProducto.php');
 
-if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realizar esta acción."; exit; }
-
+if (!$_usuario || !$_usuario->trabajador) {
+	echo "No tienes permisos para realizar esta acción."; 
+	exit;
+}
 	$proveedores = $_usuario->consultarProveedores();
 	$productos = $_usuario->consultarAlmacen();
 
@@ -34,42 +36,8 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 			$compra->trabajador_id = $_usuario->id;
 			
 			$insertado = $_usuario->agregarCompra($compra);
-
-			/*if ($insertado) {
-				// insertar productos
-				foreach ($producto_id as $x => $id) {
-					$compra_producto = new CompraProducto();
-					$compra_producto->compra_id = $compra->id;
-					$compra_producto->producto_id = $id;
-					$compra_producto->cantidad = $cantidad[$x];
-					$compra_producto->precio = $precio[$x];
-					$objetoProducto=$_usuario->consultarUnProducto($compra_producto->producto_id);
-
-				
-					$_usuario->sumarAlmacen($objetoProducto->nombre,
-						$objetoProducto->cantidad+$compra_producto->cantidad,
-						$compra_producto->precio,$compra_producto->producto_id);				
-
-					$producto_insertado = $_usuario->agregarCompraProducto($compra_producto);
-
-				}
-
-
-				$_SESSION['exito_mensaje'] = 
-				"Se insertó la compra {$compra->nombre}  correctamente.";
-				header("Location: compras.php");
-			} else {
-				echo "Error: " . $BD->error;
-				$error = true;
-			}
-
-		}
-		else
-		{
-			$error = true;
-			$error_mensaje = "Verifique los datos.";
-		}*/
 	}
+}
 
 
 ?>
@@ -77,7 +45,7 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 <html>
 <head>
 	<title>Registrar compra nueva</title>
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css">
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
 	<div class="container">
@@ -113,23 +81,12 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 
 				  	<div id="productos-formulario">
 					  
-				  	</div>
-
-				  	
-
-
-
-				  	
-				  	
+				  	</div>				  	
 				  	<button type="submit" class="btn btn-success">Guardar</button>
 				</form>
 			</div>
 		</div>
 	</div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
-
 	<script type="text/javascript">
 			$( document ).ready(function() {
 				var count = 0;
@@ -169,9 +126,6 @@ if (!$_usuario || !$_usuario->trabajador) { echo "No tienes permisos para realiz
 					$("#productos-formulario").append(x);
 
 				});
-
-				//$("#agregar-producto").click();
-
 			});
 	</script>
 
