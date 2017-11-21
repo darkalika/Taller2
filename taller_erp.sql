@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2017 a las 15:32:51
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Host: 127.0.0.1
+-- Generation Time: Nov 21, 2017 at 08:42 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `taller_erp`
+-- Database: `taller_erp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `almacen`
+-- Table structure for table `almacen`
 --
 
 CREATE TABLE `almacen` (
@@ -34,23 +36,23 @@ CREATE TABLE `almacen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `almacen`
+-- Dumping data for table `almacen`
 --
 
 INSERT INTO `almacen` (`id`, `nombre`, `ultimo_costo`, `cantidad`) VALUES
-(1, 'Luminaria', '12', 11),
+(1, 'Luminaria', '33', 7),
 (2, 'Martillos 2', '120', 22),
 (3, 'Cinta Electrica', '0', 0),
 (4, 'Motores JM100. EjecuciÃ³n JM.', '33', 22),
 (5, 'Aisladores.', '130', 24),
 (8, 'Motores JM100. EjecuciÃ³n JM.', '20', 399),
 (9, 'Pilas ', '200', 25),
-(10, 'Tornillos', '220', 30);
+(10, 'Tornillos', '440', 28);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cliente`
+-- Table structure for table `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -64,7 +66,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `cliente`
+-- Dumping data for table `cliente`
 --
 
 INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `direccion`, `correo`, `usuario`, `contrasena`) VALUES
@@ -74,7 +76,7 @@ INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `direccion`, `correo`, `usuar
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `compras`
+-- Table structure for table `compras`
 --
 
 CREATE TABLE `compras` (
@@ -86,7 +88,7 @@ CREATE TABLE `compras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `compras`
+-- Dumping data for table `compras`
 --
 
 INSERT INTO `compras` (`id`, `fecha`, `proveedor_id`, `trabajador_id`, `cancelado`) VALUES
@@ -130,7 +132,7 @@ INSERT INTO `compras` (`id`, `fecha`, `proveedor_id`, `trabajador_id`, `cancelad
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `compras_productos`
+-- Table structure for table `compras_productos`
 --
 
 CREATE TABLE `compras_productos` (
@@ -142,7 +144,7 @@ CREATE TABLE `compras_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `compras_productos`
+-- Dumping data for table `compras_productos`
 --
 
 INSERT INTO `compras_productos` (`id`, `compra_id`, `producto_id`, `cantidad`, `precio`) VALUES
@@ -179,7 +181,7 @@ INSERT INTO `compras_productos` (`id`, `compra_id`, `producto_id`, `cantidad`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor`
+-- Table structure for table `proveedor`
 --
 
 CREATE TABLE `proveedor` (
@@ -192,7 +194,7 @@ CREATE TABLE `proveedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `proveedor`
+-- Dumping data for table `proveedor`
 --
 
 INSERT INTO `proveedor` (`id`, `empresa`, `nombre`, `direccion`, `correo`, `telefono`) VALUES
@@ -203,7 +205,7 @@ INSERT INTO `proveedor` (`id`, `empresa`, `nombre`, `direccion`, `correo`, `tele
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reporte`
+-- Table structure for table `reporte`
 --
 
 CREATE TABLE `reporte` (
@@ -214,7 +216,7 @@ CREATE TABLE `reporte` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `reporte`
+-- Dumping data for table `reporte`
 --
 
 INSERT INTO `reporte` (`id`, `fecha`, `trabajador_id`, `accion`) VALUES
@@ -313,12 +315,23 @@ INSERT INTO `reporte` (`id`, `fecha`, `trabajador_id`, `accion`) VALUES
 (93, '2017-10-20', 0, 'CreaciÃ³n de producto: 27 de la compra: '),
 (94, '2017-10-20', 0, 'CreaciÃ³n de producto: 28 de la compra: '),
 (95, '2017-10-20', 1, 'CreaciÃ³n de la compra: 37'),
-(96, '2017-10-20', 0, 'CreaciÃ³n de producto: 29 de la compra: ');
+(96, '2017-10-20', 0, 'CreaciÃ³n de producto: 29 de la compra: '),
+(97, '2017-10-24', 2, 'CreaciÃ³n de la venta: 1'),
+(98, '2017-10-24', 0, 'CreaciÃ³n de producto: 1 de la venta: \n	'),
+(99, '2017-10-24', 2, 'CreaciÃ³n de la venta: 2'),
+(100, '2017-10-24', 0, 'CreaciÃ³n de producto: 2 de la venta: \n	'),
+(101, '2017-10-24', 2, 'CreaciÃ³n de la venta: 3'),
+(102, '2017-10-24', 0, 'CreaciÃ³n de producto: 3 de la venta: \n	'),
+(103, '2017-10-24', 0, 'CreaciÃ³n de producto: 4 de la venta: \n	'),
+(104, '2017-10-24', 2, 'CreaciÃ³n de la venta: 4'),
+(105, '2017-10-24', 0, 'CreaciÃ³n de producto: 5 de la venta: \n	'),
+(106, '2017-10-24', 0, 'CreaciÃ³n de producto: 6 de la venta: \n	'),
+(107, '2017-10-26', 2, 'Creacion del trabajador: ');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trabajador`
+-- Table structure for table `trabajador`
 --
 
 CREATE TABLE `trabajador` (
@@ -331,17 +344,18 @@ CREATE TABLE `trabajador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `trabajador`
+-- Dumping data for table `trabajador`
 --
 
 INSERT INTO `trabajador` (`id`, `nombre`, `apellido`, `usuario`, `contrasena`, `admin`) VALUES
 (1, 'David Alexis', 'Vazquez Ayora', 'david', 'david', 1),
-(2, 'Jose', 'Martinez', 'jose', '123', 1);
+(2, 'Jose', 'Martinez', 'jose', '123', 1),
+(3, 'Joaquin', 'Lopez', 'jLopez', '123', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ventas`
+-- Table structure for table `ventas`
 --
 
 CREATE TABLE `ventas` (
@@ -352,10 +366,20 @@ CREATE TABLE `ventas` (
   `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `fecha`, `cliente_id`, `trabajador_id`, `cancelado`) VALUES
+(1, '2017-10-23', 2, 2, 0),
+(2, '2017-10-23', 2, 2, 0),
+(3, '2017-10-23', 3, 2, 0),
+(4, '2017-10-23', 3, 2, 0);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ventas_productos`
+-- Table structure for table `ventas_productos`
 --
 
 CREATE TABLE `ventas_productos` (
@@ -367,23 +391,35 @@ CREATE TABLE `ventas_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `ventas_productos`
+--
+
+INSERT INTO `ventas_productos` (`id`, `venta_id`, `producto_id`, `cantidad`, `precio`) VALUES
+(1, 1, 1, 1, '11'),
+(2, 2, 1, 5, '0'),
+(3, 3, 1, 2, '11'),
+(4, 3, 10, 10, '220'),
+(5, 4, 1, 3, '33'),
+(6, 4, 10, 2, '440');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `almacen`
+-- Indexes for table `almacen`
 --
 ALTER TABLE `almacen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cliente`
+-- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `compras`
+-- Indexes for table `compras`
 --
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`),
@@ -391,7 +427,7 @@ ALTER TABLE `compras`
   ADD KEY `proveedor_id` (`proveedor_id`);
 
 --
--- Indices de la tabla `compras_productos`
+-- Indexes for table `compras_productos`
 --
 ALTER TABLE `compras_productos`
   ADD PRIMARY KEY (`id`),
@@ -399,25 +435,25 @@ ALTER TABLE `compras_productos`
   ADD KEY `producto_id` (`producto_id`);
 
 --
--- Indices de la tabla `proveedor`
+-- Indexes for table `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `reporte`
+-- Indexes for table `reporte`
 --
 ALTER TABLE `reporte`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `trabajador`
+-- Indexes for table `trabajador`
 --
 ALTER TABLE `trabajador`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ventas`
+-- Indexes for table `ventas`
 --
 ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id`),
@@ -425,7 +461,7 @@ ALTER TABLE `ventas`
   ADD KEY `trabajador_id` (`trabajador_id`);
 
 --
--- Indices de la tabla `ventas_productos`
+-- Indexes for table `ventas_productos`
 --
 ALTER TABLE `ventas_productos`
   ADD PRIMARY KEY (`id`),
@@ -433,85 +469,86 @@ ALTER TABLE `ventas_productos`
   ADD KEY `producto_id` (`producto_id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `almacen`
+-- AUTO_INCREMENT for table `almacen`
 --
 ALTER TABLE `almacen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT de la tabla `cliente`
+-- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `compras`
+-- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
--- AUTO_INCREMENT de la tabla `compras_productos`
+-- AUTO_INCREMENT for table `compras_productos`
 --
 ALTER TABLE `compras_productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
--- AUTO_INCREMENT de la tabla `proveedor`
+-- AUTO_INCREMENT for table `proveedor`
 --
 ALTER TABLE `proveedor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT de la tabla `reporte`
+-- AUTO_INCREMENT for table `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
--- AUTO_INCREMENT de la tabla `trabajador`
+-- AUTO_INCREMENT for table `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `ventas`
+-- AUTO_INCREMENT for table `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `ventas_productos`
+-- AUTO_INCREMENT for table `ventas_productos`
 --
 ALTER TABLE `ventas_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `compras`
+-- Constraints for table `compras`
 --
 ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedor` (`id`),
   ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`trabajador_id`) REFERENCES `trabajador` (`id`);
 
 --
--- Filtros para la tabla `compras_productos`
+-- Constraints for table `compras_productos`
 --
 ALTER TABLE `compras_productos`
   ADD CONSTRAINT `compras_productos_ibfk_1` FOREIGN KEY (`compra_id`) REFERENCES `compras` (`id`),
   ADD CONSTRAINT `compras_productos_ibfk_2` FOREIGN KEY (`producto_id`) REFERENCES `almacen` (`id`);
 
 --
--- Filtros para la tabla `ventas`
+-- Constraints for table `ventas`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
   ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`trabajador_id`) REFERENCES `trabajador` (`id`);
 
 --
--- Filtros para la tabla `ventas_productos`
+-- Constraints for table `ventas_productos`
 --
 ALTER TABLE `ventas_productos`
   ADD CONSTRAINT `ventas_productos_ibfk_1` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id`),
   ADD CONSTRAINT `ventas_productos_ibfk_2` FOREIGN KEY (`producto_id`) REFERENCES `almacen` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
