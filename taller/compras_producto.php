@@ -10,6 +10,7 @@ $compras = $_usuario->consultarComprasProducto();
 
 
  ?>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Compras Producto</title>
@@ -40,6 +41,8 @@ $compras = $_usuario->consultarComprasProducto();
 			</div>
 			<div class="col-sm-8 text-left"> 
 				<h2>Compras Productos</h2>
+				<input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+  				<br>				
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
@@ -52,7 +55,7 @@ $compras = $_usuario->consultarComprasProducto();
 								<!-- <th>ID PROVEEDOR</th> -->					
 							</tr>
 						</thead>
-						<tbody>					
+						<tbody id="myTable">
 							<?php foreach($compras as $objeto2) { ?>
 							<tr>
 								<td><?php echo $objeto2->id; ?></td>
@@ -79,5 +82,15 @@ $compras = $_usuario->consultarComprasProducto();
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>
+	<script>
+		$(document).ready(function(){
+  		$("#myInput").on("keyup", function() {
+    	var value = $(this).val().toLowerCase();
+    	$("#myTable tr").filter(function() {
+      	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    			});
+  			});
+		});
+	</script>
 </body>
 </html> 

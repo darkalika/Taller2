@@ -35,11 +35,11 @@ $ventas = $_usuario->consultarVentasProducto();
 					<?php unset($_SESSION['error_mensaje']); ?>
 				</div>
 				<?php } ?>
-				<!-- <p><a href="producto_nuevo.php" class="btn btn-success btn-xs">Producto Nuevo</a></p> -->
-				<!-- <p><a href="#">Link</a></p> -->
 			</div>
 			<div class="col-sm-8 text-left"> 
 				<h2>Ventas Productos</h2>
+				<input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+  				<br>
 				<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
@@ -52,7 +52,7 @@ $ventas = $_usuario->consultarVentasProducto();
 							<!-- <th>ID PROVEEDOR</th> -->					
 						</tr>
 					</thead>
-					<tbody>						
+					<tbody id="myTable">					
 						<?php foreach($ventas as $objeto2) { ?>
 							<tr>
 								<td><?php echo $objeto2->id; ?></td>
@@ -80,5 +80,16 @@ $ventas = $_usuario->consultarVentasProducto();
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>
+	<script>
+		$(document).ready(function(){
+  		$("#myInput").on("keyup", function() {
+    	var value = $(this).val().toLowerCase();
+    	$("#myTable tr").filter(function() {
+      	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    			});
+  			});
+		});
+	</script>
+
 </body>
 </html> 

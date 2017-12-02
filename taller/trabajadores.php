@@ -14,11 +14,7 @@ $trabajadores = $_usuario->consultarTrabajadores();
 <html>
 <head>
 	<title>Trabajadores</title>
-	<meta name="viewport" content="width=divice-width, initial-scale=1">
-	 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<?php include 'utilitys.php'; ?>
 </head>
 <body>
  	<?php include 'nav.php'; ?>
@@ -45,6 +41,8 @@ $trabajadores = $_usuario->consultarTrabajadores();
 	    </div>
 	    <div class="col-sm-8 text-left"> 
 	      <h2>Lista de Trabajadores</h2>
+	      <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+	      <br>
 	      <div class="table-responsive">
 	      	<table class="table table-striped">
 	      		<thead>
@@ -57,7 +55,7 @@ $trabajadores = $_usuario->consultarTrabajadores();
 						<th>ADMIN</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="myTable">
 					<?php foreach($trabajadores as $objeto) { ?>
 					<tr>
 						<td><?php echo $objeto->id; ?></td>
@@ -90,7 +88,16 @@ $trabajadores = $_usuario->consultarTrabajadores();
 	</div>
 </div>
 </div>
-
 <?php include 'footer.php'; ?>
+	<script>
+		$(document).ready(function(){
+  		$("#myInput").on("keyup", function() {
+    	var value = $(this).val().toLowerCase();
+    	$("#myTable tr").filter(function() {
+      	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    			});
+  			});
+		});
+	</script>
 </body>
 </html>

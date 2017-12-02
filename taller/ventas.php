@@ -37,7 +37,7 @@ $ventas = $_usuario->consultarVentas();
 			</div>
 			<div class="col-sm-8 text-left"> 
 				<h2>Ventas</h2>
-				<input class="form-control" id="myInput" type="text" placeholder="Search..">
+				<input class="form-control" id="myInput" type="text" placeholder="Buscar..">
   				<br>
 				<div class="table-responsive">
 				<table class="table table-bordered table-striped">

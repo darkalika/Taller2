@@ -40,6 +40,8 @@ $clientes = $_usuario->consultarProveedores();
 			</div>
 			<div class="col-sm-8 text-left"> 
 				<h2>Lista de Proovedores</h2>
+				<input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+  				<br>				
 				<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
@@ -53,7 +55,7 @@ $clientes = $_usuario->consultarProveedores();
 					
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="myTable">
 						<?php foreach($clientes as $objeto) { ?>
 							<tr>
 								<td><?php echo $objeto->id; ?></td>
@@ -82,5 +84,15 @@ $clientes = $_usuario->consultarProveedores();
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>
+	<script>
+		$(document).ready(function(){
+  		$("#myInput").on("keyup", function() {
+    	var value = $(this).val().toLowerCase();
+    	$("#myTable tr").filter(function() {
+      	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    			});
+  			});
+		});
+	</script>
 </body>
 </html>
